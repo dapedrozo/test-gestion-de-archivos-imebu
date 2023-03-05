@@ -1,0 +1,109 @@
+{% extends 'layout.html' %}
+{% block titulo %}
+IMEBU INTRA - INVENTARIO JURIDICO
+{% endblock titulo %}
+
+{%block content%}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+<div class="row justify-content-center mt-2">
+    <div class="col-md-11">
+        <button type="button" class="btn btn-success btn-block mb-2" data-bs-toggle="modal" data-bs-target="#gestJud">
+            Cargar excel
+        </button>
+        <div class="modal fade" id="gestJud" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="gestJud" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="gestJud">Cargar excel</h5>
+                        <a href="/gestion-juridica" class="btn-close" aria-label="Close"></a>
+                    </div>
+                    <form method="POST" action="/gestion-juridica" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="file" name="archivo" value="Upload" class="btn btn-success btn-block"><br>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/gestion-juridica" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</a>
+                        <button type="submit" class="btn btn-secondary">Enviar</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive mt-2" id="mydatatable-container">
+            <table class="records_list table table-striped table-bordered table-hover table-light" id="mydatatable1">
+                <thead>
+                    <tr>
+                        <th>Nombre de archivo</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>filter..</th>
+                    </tr>
+                </tfoot>
+                {% for dato in datos %}
+                <tr>
+                    <td><a href="/vista-doc-juridica/{{ dato.0 }}">{{ dato.0 }}</a></td>
+                    <td>
+                        <a href="/delete-juridica/{{ dato.0 }}" class="btn btn-danger btn-delete"id="pim">Eliminar</a>
+                  </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+</div>
+
+{%endblock content%}
+
+
+{%block scripts %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#mydatatable1 tfoot th').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" placeholder="Filtrar.." />');
+        });
+
+        var table = $('#mydatatable1').DataTable({
+            "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+            "responsive": false,
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+            },
+            "order": [[0, "desc"]],
+            "initComplete": function () {
+                this.api().columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that
+                                .search(this.value)
+                                .draw();
+                        }
+                    });
+                })
+            },
+            "buttons": [
+                { extend: 'csv', filename: "filtro direccion", sheetName: "hoja 1" },
+                { extend: 'excel', filename: "filtro direccion", sheetName: "hoja 1", title: null },
+                { extend: 'pdf', filename: "filtro direccion", title: null, pageSize: "LETTER", orientation: 'landscape'/*portrait*/ },
+                { extend: 'print', title: '' }]
+        });
+    });
+</script>
+{%endblock scripts %}

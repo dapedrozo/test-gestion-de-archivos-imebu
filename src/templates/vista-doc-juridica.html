@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+{% block titulo %}
+IMEBU INTRA - INVENTARIO JURIDICO
+{% endblock titulo %}
+
+{%block content%}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+<div class="row justify-content-center mt-2">
+    <div class="col-md-11">
+        <a href="/gestion-juridica" class="btn btn-primary btn-block">Volver</a>
+        <div class="table-responsive mt-2" id="mydatatable-container">
+            <table class="records_list table table-striped table-bordered table-hover table-light" id="mydatatable1">
+                <thead>
+                    <tr>
+                        {%for name in datos[0]%}
+                        <th>{{name}}</th>
+                        {%endfor%}
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        {%for name in datos[0]%}
+                        <th>filter..</th>
+                        {%endfor%}
+                    </tr>
+                </tfoot>
+                {% for row in datos[1:] %}
+                <tr>
+                    {% for col in row %}
+                    <td>{{col}}</td>
+                    {%endfor%}
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+</div>
+
+{%endblock content%}
+
+
+{%block scripts %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#mydatatable1 tfoot th').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" placeholder="Filtrar.." />');
+        });
+
+        var table = $('#mydatatable1').DataTable({
+            "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+            "responsive": false,
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+            },
+            "order": [[0, "desc"]],
+            "initComplete": function () {
+                this.api().columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that
+                                .search(this.value)
+                                .draw();
+                        }
+                    });
+                })
+            },
+            "buttons": [
+                { extend: 'csv', filename: "{{name}}", sheetName: "hoja 1" },
+                { extend: 'excel', filename: "{{name}}", sheetName: "hoja 1", title: null },
+                { extend: 'pdf', filename: "{{name}}", title: null, pageSize: "LETTER", orientation: 'landscape'/*portrait*/ },
+                { extend: 'print', title: '' }]
+        });
+    });
+</script>
+{%endblock scripts %}

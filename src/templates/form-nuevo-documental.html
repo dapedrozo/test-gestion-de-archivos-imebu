@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+{% block titulo %}
+IMEBU INTRA - INVENTARIO DOCUMENTAL
+{% endblock titulo %}
+
+{%block content%}
+<div class="row mt-3">
+    <div class="col-md-8 offset-md-2">
+        <div class="card mt-0 text-center">
+            <div class="card-header">
+                <h3>Agregar Nuevo</h3>
+            </div>
+            <div class="card-body">
+                <form action="/agregar-nuevo/{{id}}" method="POST">
+                    <div class="row g-2">
+                        <div class="col-md-4">
+                            <label for="Norden" class="form-label">N. orden</label>
+                            <input type="text" name="Norden" id="Norden" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Codigo" class="form-label">Codigo</label>
+                            <input type="text" name="Codigo" id="Codigo" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="SerSubAsun" class="form-label">Serie, subserie o asunto</label>
+                            <input type="text" name="SerSubAsun" id="SerSubAsun" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="FechaInicial" class="form-label">Fecha inicial</label>
+                            <input type="date" name="FechaInicial" id="FechaInicial" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="FechaFinal" class="form-label">Fecha final</label>
+                            <input type="date" name="FechaFinal" id="FechaFinal" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Caja" class="form-label">Caja</label>
+                            <input type="text" name="Caja" id="Caja" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Carpeta" class="form-label">Carpeta</label>
+                            <input type="text" name="Carpeta" id="Carpeta" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Tomo" class="form-label">Tomo</label>
+                            <input type="text" name="Tomo" id="Tomo" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Nfolios" class="form-label">N. folios</label>
+                            <input type="text" name="Nfolios" id="Nfolios" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Soporte" class="form-label">Soporte</label>
+                            <input type="text" name="Soporte" id="Soporte" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="FrecuConsulta" class="form-label">Frecu. consulta</label>
+                            <input type="text" name="FrecuConsulta" id="FrecuConsulta" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Notas" class="form-label">Notas</label>
+                            <input type="text" name="Notas" id="Notas" class="form-control">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="Observaciones" class="form-label">Observaciones</label>
+                            <input type="text-area" name="Observaciones" id="Observaciones" class="form-control">
+                        </div>    
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block mt-4 form-control">
+                            Guardar
+                        </button>
+                        <a href="/dashboard-gestion-documental" class="btn btn-success btn-block mt-3 form-control">Volver</a>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+{%endblock content%}

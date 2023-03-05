@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Multifiltro Ingles</title>
+
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"></script>
+
+    <!-- Datatables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.css">
+    <script src="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.js"></script>
+</head>
+
+<body class="container-fluid p-5">
+    <h1>Direccion</h1>
+    <button class="btn btn-success btn-block">Cargar Excel</button>
+    <a href="#" class="btn btn-primary btn-block">Agregar nuevo</a>
+    <div class="table-responsive mt-2" id="mydatatable-container">
+        <table class="records_list table table-striped table-bordered table-hover table-light" id="mydatatable1">
+            <thead>
+                <tr>
+                    <th>N. orden</th>
+                    <th>Codigo</th>
+                    <th>Serie, subserie o asunto</th>
+                    <th>Fecha inicial</th>
+                    <th>Fecha final</th>
+                    <th>Caja</th>
+                    <th>Carpeta</th>
+                    <th>Tomo</th>
+                    <th>N. folios</th>
+                    <th>Soporte</th>
+                    <th>Frecu. consulta</th>
+                    <th>Notas</th>
+                    <th>Observaciones</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <!--
+                {% for dato in filtro %}
+                <tr>
+                    <td>{{ dato.0 }}</td>
+                    <td>{{ dato.1 }}</td>
+                    <td>{{ dato.2 }}</td>
+                    <td>{{ dato.3 }}</td>
+                    <td>{{ dato.4 }}</td>
+                    <td>{{ dato.5 }}</td>
+                    <td>{{ dato.6 }}</td>
+                    <td>{{ dato.7 }}</td>
+                    <td>{{ dato.8 }}</td>
+                    <td>{{ dato.9 }}</td>
+                    <td>{{ dato.10 }}</td>
+                    <td>{{ dato.11 }}</td>
+                    <td>{{ dato.12 }}</td>
+                    <td>{{ dato.13 }}</td>
+                </tr>
+                {% endfor %}-->
+            </tbody>
+        </table>
+    </div>
+    <h1>Juridica</h1>
+    <button class="btn btn-success btn-block">Cargar Excel</button>
+    <a href="#" class="btn btn-primary btn-block">Agregar nuevo</a>
+    <div class="table-responsive mt-2" id="mydatatable-container">
+        <table class="records_list table table-striped table-bordered table-hover table-light" id="mydatatable2">
+            <thead>
+                <tr>
+                    <th>N. orden</th>
+                    <th>Codigo</th>
+                    <th>Serie, subserie o asunto</th>
+                    <th>Fecha inicial</th>
+                    <th>Fecha final</th>
+                    <th>Caja</th>
+                    <th>Carpeta</th>
+                    <th>Tomo</th>
+                    <th>N. folios</th>
+                    <th>Soporte</th>
+                    <th>Frecu. consulta</th>
+                    <th>Notas</th>
+                    <th>Observaciones</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <!--
+                {% for dato in filtro %}
+                <tr>
+                    <td>{{ dato.0 }}</td>
+                    <td>{{ dato.1 }}</td>
+                    <td>{{ dato.2 }}</td>
+                    <td>{{ dato.3 }}</td>
+                    <td>{{ dato.4 }}</td>
+                    <td>{{ dato.5 }}</td>
+                    <td>{{ dato.6 }}</td>
+                    <td>{{ dato.7 }}</td>
+                    <td>{{ dato.8 }}</td>
+                    <td>{{ dato.9 }}</td>
+                    <td>{{ dato.10 }}</td>
+                    <td>{{ dato.11 }}</td>
+                    <td>{{ dato.12 }}</td>
+                    <td>{{ dato.13 }}</td>
+                </tr>
+                {% endfor %}-->
+            </tbody>
+        </table>
+    </div>
+    <h1>Subdireccion Administrativa y Financiera</h1>
+    <button class="btn btn-success btn-block">Cargar Excel</button>
+    <a href="#" class="btn btn-primary btn-block">Agregar nuevo</a>
+    <div class="table-responsive mt-2" id="mydatatable-container">
+        <table class="records_list table table-striped table-bordered table-hover table-light" id="mydatatable3">
+            <thead>
+                <tr>
+                    <th>N. orden</th>
+                    <th>Codigo</th>
+                    <th>Serie, subserie o asunto</th>
+                    <th>Fecha inicial</th>
+                    <th>Fecha final</th>
+                    <th>Caja</th>
+                    <th>Carpeta</th>
+                    <th>Tomo</th>
+                    <th>N. folios</th>
+                    <th>Soporte</th>
+                    <th>Frecu. consulta</th>
+                    <th>Notas</th>
+                    <th>Observaciones</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <!--
+                {% for dato in filtro %}
+                <tr>
+                    <td>{{ dato.0 }}</td>
+                    <td>{{ dato.1 }}</td>
+                    <td>{{ dato.2 }}</td>
+                    <td>{{ dato.3 }}</td>
+                    <td>{{ dato.4 }}</td>
+                    <td>{{ dato.5 }}</td>
+                    <td>{{ dato.6 }}</td>
+                    <td>{{ dato.7 }}</td>
+                    <td>{{ dato.8 }}</td>
+                    <td>{{ dato.9 }}</td>
+                    <td>{{ dato.10 }}</td>
+                    <td>{{ dato.11 }}</td>
+                    <td>{{ dato.12 }}</td>
+                    <td>{{ dato.13 }}</td>
+                </tr>
+                {% endfor %}-->
+            </tbody>
+        </table>
+    </div>
+    <h1>Contabilidad</h1>
+    <button class="btn btn-success btn-block">Cargar Excel</button>
+    <a href="#" class="btn btn-primary btn-block">Agregar nuevo</a>
+    <div class="table-responsive mt-2" id="mydatatable-container">
+        <table class="records_list table table-striped table-bordered table-hover table-light" id="mydatatable4">
+            <thead>
+                <tr>
+                    <th>N. orden</th>
+                    <th>Codigo</th>
+                    <th>Serie, subserie o asunto</th>
+                    <th>Fecha inicial</th>
+                    <th>Fecha final</th>
+                    <th>Caja</th>
+                    <th>Carpeta</th>
+                    <th>Tomo</th>
+                    <th>N. folios</th>
+                    <th>Soporte</th>
+                    <th>Frecu. consulta</th>
+                    <th>Notas</th>
+                    <th>Observaciones</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <!--
+                {% for dato in filtro %}
+                <tr>
+                    <td>{{ dato.0 }}</td>
+                    <td>{{ dato.1 }}</td>
+                    <td>{{ dato.2 }}</td>
+                    <td>{{ dato.3 }}</td>
+                    <td>{{ dato.4 }}</td>
+                    <td>{{ dato.5 }}</td>
+                    <td>{{ dato.6 }}</td>
+                    <td>{{ dato.7 }}</td>
+                    <td>{{ dato.8 }}</td>
+                    <td>{{ dato.9 }}</td>
+                    <td>{{ dato.10 }}</td>
+                    <td>{{ dato.11 }}</td>
+                    <td>{{ dato.12 }}</td>
+                    <td>{{ dato.13 }}</td>
+                </tr>
+                {% endfor %}-->
+            </tbody>
+        </table>
+    </div>
+    <h1>Tesoreria</h1>
+    <button class="btn btn-success btn-block">Cargar Excel</button>
+    <a href="#" class="btn btn-primary btn-block">Agregar nuevo</a>
+    <div class="table-responsive mt-2" id="mydatatable-container">
+        <table class="records_list table table-striped table-bordered table-hover table-light" id="mydatatable5">
+            <thead>
+                <tr>
+                    <th>N. orden</th>
+                    <th>Codigo</th>
+                    <th>Serie, subserie o asunto</th>
+                    <th>Fecha inicial</th>
+                    <th>Fecha final</th>
+                    <th>Caja</th>
+                    <th>Carpeta</th>
+                    <th>Tomo</th>
+                    <th>N. folios</th>
+                    <th>Soporte</th>
+                    <th>Frecu. consulta</th>
+                    <th>Notas</th>
+                    <th>Observaciones</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <!--
+                {% for dato in filtro %}
+                <tr>
+                    <td>{{ dato.0 }}</td>
+                    <td>{{ dato.1 }}</td>
+                    <td>{{ dato.2 }}</td>
+                    <td>{{ dato.3 }}</td>
+                    <td>{{ dato.4 }}</td>
+                    <td>{{ dato.5 }}</td>
+                    <td>{{ dato.6 }}</td>
+                    <td>{{ dato.7 }}</td>
+                    <td>{{ dato.8 }}</td>
+                    <td>{{ dato.9 }}</td>
+                    <td>{{ dato.10 }}</td>
+                    <td>{{ dato.11 }}</td>
+                    <td>{{ dato.12 }}</td>
+                    <td>{{ dato.13 }}</td>
+                </tr>
+                {% endfor %}-->
+            </tbody>
+        </table>
+    </div>
+    <h1>Subdireccion Tecnica</h1>
+    <button class="btn btn-success btn-block">Cargar Excel</button>
+    <a href="#" class="btn btn-primary btn-block">Agregar nuevo</a>
+    <div class="table-responsive mt-2" id="mydatatable-container">
+        <table class="records_list table table-striped table-bordered table-hover table-light" id="mydatatable6">
+            <thead>
+                <tr>
+                    <th>N. orden</th>
+                    <th>Codigo</th>
+                    <th>Serie, subserie o asunto</th>
+                    <th>Fecha inicial</th>
+                    <th>Fecha final</th>
+                    <th>Caja</th>
+                    <th>Carpeta</th>
+                    <th>Tomo</th>
+                    <th>N. folios</th>
+                    <th>Soporte</th>
+                    <th>Frecu. consulta</th>
+                    <th>Notas</th>
+                    <th>Observaciones</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <!--
+                {% for dato in filtro %}
+                <tr>
+                    <td>{{ dato.0 }}</td>
+                    <td>{{ dato.1 }}</td>
+                    <td>{{ dato.2 }}</td>
+                    <td>{{ dato.3 }}</td>
+                    <td>{{ dato.4 }}</td>
+                    <td>{{ dato.5 }}</td>
+                    <td>{{ dato.6 }}</td>
+                    <td>{{ dato.7 }}</td>
+                    <td>{{ dato.8 }}</td>
+                    <td>{{ dato.9 }}</td>
+                    <td>{{ dato.10 }}</td>
+                    <td>{{ dato.11 }}</td>
+                    <td>{{ dato.12 }}</td>
+                    <td>{{ dato.13 }}</td>
+                </tr>
+                {% endfor %}-->
+            </tbody>
+        </table>
+    </div>
+    <h1>Control Interno</h1>
+    <button class="btn btn-success btn-block">Cargar Excel</button>
+    <a href="#" class="btn btn-primary btn-block">Agregar nuevo</a>
+    <div class="table-responsive mt-2" id="mydatatable-container">
+        <table class="records_list table table-striped table-bordered table-hover table-light" id="mydatatable7">
+            <thead>
+                <tr>
+                    <th>N. orden</th>
+                    <th>Codigo</th>
+                    <th>Serie, subserie o asunto</th>
+                    <th>Fecha inicial</th>
+                    <th>Fecha final</th>
+                    <th>Caja</th>
+                    <th>Carpeta</th>
+                    <th>Tomo</th>
+                    <th>N. folios</th>
+                    <th>Soporte</th>
+                    <th>Frecu. consulta</th>
+                    <th>Notas</th>
+                    <th>Observaciones</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <!--
+                {% for dato in filtro %}
+                <tr>
+                    <td>{{ dato.0 }}</td>
+                    <td>{{ dato.1 }}</td>
+                    <td>{{ dato.2 }}</td>
+                    <td>{{ dato.3 }}</td>
+                    <td>{{ dato.4 }}</td>
+                    <td>{{ dato.5 }}</td>
+                    <td>{{ dato.6 }}</td>
+                    <td>{{ dato.7 }}</td>
+                    <td>{{ dato.8 }}</td>
+                    <td>{{ dato.9 }}</td>
+                    <td>{{ dato.10 }}</td>
+                    <td>{{ dato.11 }}</td>
+                    <td>{{ dato.12 }}</td>
+                    <td>{{ dato.13 }}</td>
+                </tr>
+                {% endfor %}-->
+            </tbody>
+        </table>
+    </div>
+    <h1>Sistemas</h1>
+    <button class="btn btn-success btn-block">Cargar Excel</button>
+    <a href="#" class="btn btn-primary btn-block">Agregar nuevo</a>
+    <div class="table-responsive mt-2" id="mydatatable-container">
+        <table class="records_list table table-striped table-bordered table-hover table-light" id="mydatatable8">
+            <thead>
+                <tr>
+                    <th>N. orden</th>
+                    <th>Codigo</th>
+                    <th>Serie, subserie o asunto</th>
+                    <th>Fecha inicial</th>
+                    <th>Fecha final</th>
+                    <th>Caja</th>
+                    <th>Carpeta</th>
+                    <th>Tomo</th>
+                    <th>N. folios</th>
+                    <th>Soporte</th>
+                    <th>Frecu. consulta</th>
+                    <th>Notas</th>
+                    <th>Observaciones</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                    <th>Filter..</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <!--
+                {% for dato in filtro %}
+                <tr>
+                    <td>{{ dato.0 }}</td>
+                    <td>{{ dato.1 }}</td>
+                    <td>{{ dato.2 }}</td>
+                    <td>{{ dato.3 }}</td>
+                    <td>{{ dato.4 }}</td>
+                    <td>{{ dato.5 }}</td>
+                    <td>{{ dato.6 }}</td>
+                    <td>{{ dato.7 }}</td>
+                    <td>{{ dato.8 }}</td>
+                    <td>{{ dato.9 }}</td>
+                    <td>{{ dato.10 }}</td>
+                    <td>{{ dato.11 }}</td>
+                    <td>{{ dato.12 }}</td>
+                    <td>{{ dato.13 }}</td>
+                </tr>
+                {% endfor %}-->
+            </tbody>
+        </table>
+    </div>
+    <style>
+        #mydatatable tfoot input {
+            width: 100% !important;
+        }
+
+        #mydatatable tfoot {
+            display: table-header-group !important;
+        }
+    </style>
+
+<script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.53/build/pdfmake.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.53/build/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#mydatatable1 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Filtrar.." />');
+            });
+
+            var table = $('#mydatatable1').DataTable({
+                "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+                "responsive": false,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+                },
+                "order": [[0, "desc"]],
+                "initComplete": function () {
+                    this.api().columns().every(function () {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change', function () {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    })
+                },
+                "buttons": [
+                { extend: 'csv', filename: "filtro direccion", sheetName: "hoja 1" },
+                { extend: 'excel', filename: "filtro direccion", sheetName: "hoja 1", title: null },
+                { extend: 'pdf', filename: "filtro direccion", title: null, pageSize: "LETTER", orientation: 'landscape'/*portrait*/ },
+                { extend: 'print', title: '' }]
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#mydatatable2 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Filtrar.." />');
+            });
+
+            var table = $('#mydatatable2').DataTable({
+                "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+                "responsive": false,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+                },
+                "order": [[0, "desc"]],
+                "initComplete": function () {
+                    this.api().columns().every(function () {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change', function () {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    })
+                },
+                "buttons": [
+                { extend: 'csv', filename: "filtro juridica", sheetName: "hoja 1" },
+                { extend: 'excel', filename: "filtro juridica", sheetName: "hoja 1", title: null },
+                { extend: 'pdf', filename: "filtro juridica", title: null, pageSize: "LETTER", orientation: 'landscape'/*portrait*/ },
+                { extend: 'print', title: '' }]
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#mydatatable3 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Filtrar.." />');
+            });
+
+            var table = $('#mydatatable3').DataTable({
+                "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+                "responsive": false,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+                },
+                "order": [[0, "desc"]],
+                "initComplete": function () {
+                    this.api().columns().every(function () {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change', function () {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    })
+                },
+                "buttons": [
+                { extend: 'csv', filename: "filtro subDirAdminFinan", sheetName: "hoja 1" },
+                { extend: 'excel', filename: "filtro subDirAdminFinan", sheetName: "hoja 1", title: null },
+                { extend: 'pdf', filename: "filtro subDirAdminFinan", title: null, pageSize: "LETTER", orientation: 'landscape'/*portrait*/ },
+                { extend: 'print', title: '' }]
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#mydatatable4 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Filtrar.." />');
+            });
+
+            var table = $('#mydatatable4').DataTable({
+                "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+                "responsive": false,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+                },
+                "order": [[0, "desc"]],
+                "initComplete": function () {
+                    this.api().columns().every(function () {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change', function () {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    })
+                },
+                "buttons": [
+                { extend: 'csv', filename: "filtro contabilidad", sheetName: "hoja 1" },
+                { extend: 'excel', filename: "filtro contabilidad", sheetName: "hoja 1", title: null },
+                { extend: 'pdf', filename: "filtro contabilidad", title: null, pageSize: "LETTER", orientation: 'landscape'/*portrait*/ },
+                { extend: 'print', title: '' }]
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#mydatatable5 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Filtrar.." />');
+            });
+
+            var table = $('#mydatatable5').DataTable({
+                "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+                "responsive": false,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+                },
+                "order": [[0, "desc"]],
+                "initComplete": function () {
+                    this.api().columns().every(function () {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change', function () {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    })
+                },
+                "buttons": [
+                { extend: 'csv', filename: "filtro tesoreria", sheetName: "hoja 1" },
+                { extend: 'excel', filename: "filtro tesoreria", sheetName: "hoja 1", title: null },
+                { extend: 'pdf', filename: "filtro tesoreria", title: null, pageSize: "LETTER", orientation: 'landscape'/*portrait*/ },
+                { extend: 'print', title: '' }]
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#mydatatable6 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Filtrar.." />');
+            });
+
+            var table = $('#mydatatable6').DataTable({
+                "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+                "responsive": false,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+                },
+                "order": [[0, "desc"]],
+                "initComplete": function () {
+                    this.api().columns().every(function () {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change', function () {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    })
+                },
+                "buttons": [
+                { extend: 'csv', filename: "filtro subdirTecnica", sheetName: "hoja 1" },
+                { extend: 'excel', filename: "filtro subdirTecnica", sheetName: "hoja 1", title: null },
+                { extend: 'pdf', filename: "filtro subdirTecnica", title: null, pageSize: "LETTER", orientation: 'landscape'/*portrait*/ },
+                { extend: 'print', title: '' }]
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#mydatatable7 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Filtrar.." />');
+            });
+
+            var table = $('#mydatatable7').DataTable({
+                "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+                "responsive": false,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+                },
+                "order": [[0, "desc"]],
+                "initComplete": function () {
+                    this.api().columns().every(function () {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change', function () {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    })
+                },
+                "buttons": [
+                { extend: 'csv', filename: "filtro controlInterno", sheetName: "hoja 1" },
+                { extend: 'excel', filename: "filtro controlInterno", sheetName: "hoja 1", title: null },
+                { extend: 'pdf', filename: "filtro controlInterno", title: null, pageSize: "LETTER", orientation: 'landscape'/*portrait*/ },
+                { extend: 'print', title: '' }]
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#mydatatable8 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Filtrar.." />');
+            });
+
+            var table = $('#mydatatable8').DataTable({
+                "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+                "responsive": false,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+                },
+                "order": [[0, "desc"]],
+                "initComplete": function () {
+                    this.api().columns().every(function () {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change', function () {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    })
+                },
+                "buttons": [
+                { extend: 'csv', filename: "filtro sistemas", sheetName: "hoja 1" },
+                { extend: 'excel', filename: "filtro sistemas", sheetName: "hoja 1", title: null },
+                { extend: 'pdf', filename: "filtro controlInterno", title: null, pageSize: "LETTER", orientation: 'landscape'/*portrait*/ },
+                { extend: 'print', title: '' }]
+            });
+        });
+    </script>
+</body>
+
+</html>
